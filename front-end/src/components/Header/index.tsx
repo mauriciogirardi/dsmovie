@@ -5,7 +5,7 @@ import { GithubLink } from './GithubLink';
 export const Header = () => {
   return (
     <Box bg='gray.800'>
-      <Container maxW='container.lg' py='6'>
+      <Container maxW='container.lg' py='4'>
         <Flex
           as='header'
           align='center'
