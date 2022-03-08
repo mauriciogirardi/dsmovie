@@ -14,6 +14,9 @@ export const dark = extendTheme({
       '100': '#D1D2DC',
       '50': '#EEEEF2',
     },
+    yellow: {
+      '500': '#FFBB3A',
+    },
   },
 
   fonts: {

@@ -31,7 +31,7 @@ export default function Form() {
             borderRadius='10px 10px 0 0'
           />
           <Heading fontWeight='thin' size='lg' mt='2'>
-            The Witcher
+            John Wick
           </Heading>
         </Box>
 
