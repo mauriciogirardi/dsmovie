@@ -28,6 +28,7 @@ export default function Form() {
             w='100%'
             objectFit='cover'
             height='200px'
+            borderRadius='10px 10px 0 0'
           />
           <Heading fontWeight='thin' size='lg' mt='2'>
             The Witcher
