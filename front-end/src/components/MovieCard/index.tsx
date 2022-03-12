@@ -4,9 +4,15 @@ import {
   Heading,
   Image,
 } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
+import { Movie } from '../../types/MovieProps';
 import { Score } from './Score';
 
-export const MovieCard = () => {
+interface MovieCardProps {
+  movie: Movie;
+}
+
+export const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <Flex
       flexDir='column'
@@ -19,8 +25,8 @@ export const MovieCard = () => {
       pb='5'
     >
       <Image
-        src='https://tm.ibxk.com.br/2021/12/02/02070127889006.jpg?ims=1120x420'
-        alt='Title movi'
+        src={movie.image}
+        alt={movie.title}
         w='260px'
         objectFit='cover'
         height='147px'
@@ -34,19 +40,21 @@ export const MovieCard = () => {
         textAlign='center'
         mt='1'
       >
-        Jhon Wick
+        {movie.title}
       </Heading>
 
-      <Score />
+      <Score score={movie.score} count={movie.count} />
 
-      <Button
-        colorScheme='blue'
-        fontWeight='normal'
-        w='180px'
-        h='8'
-      >
-        Avaliar
-      </Button>
+      <Link to={`/form/${movie.id}`}>
+        <Button
+          colorScheme='blue'
+          fontWeight='normal'
+          w='180px'
+          h='8'
+        >
+          Avaliar
+        </Button>
+      </Link>
     </Flex>
   );
 };

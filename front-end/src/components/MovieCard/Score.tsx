@@ -1,11 +1,13 @@
 import { Flex, Text } from '@chakra-ui/react';
 import { Stars } from './Stars';
 
-export const Score = () => {
-  const score = 3.5;
-  const count = 2;
+interface ScoreProps {
+  score: number;
+  count: number;
+}
 
-  const scoreRes = score > 0 ? score.toFixed(1) : '-';
+export const Score = ({ score, count }: ScoreProps) => {
+  const scoreRes = score > 0 ? score.toFixed(1) : '0';
   const countRes =
     count > 1
       ? `${count} avaliações`
@@ -19,7 +21,7 @@ export const Score = () => {
       gap={1}
     >
       <Text color='yellow.500'>{scoreRes}</Text>
-      <Stars />
+      <Stars score={score} />
       <Text color='gray.300' fontSize='13px'>
         {countRes}
       </Text>
