@@ -1,10 +1,13 @@
-import { HStack, Stack, Box, Text } from '@chakra-ui/react';
+import { HStack, Stack, Text } from '@chakra-ui/react';
+import { useEffect } from 'react';
 import { PaginationItem } from './PaginationItem';
 
 interface PaginationProps {
-  totalCountRegister: number;
+  totalCountRegister?: number;
   registersPerPage?: number;
+  numberOfElements?: number;
   currentPage?: number;
+  lastPage: number;
   onPageChange: (page: number) => void;
 }
 
@@ -21,12 +24,14 @@ function generationPagesArray(from: number, to: number) {
 export function Pagination({
   totalCountRegister,
   onPageChange,
+  lastPage,
+  numberOfElements,
   currentPage = 1,
-  registersPerPage = 10,
+  registersPerPage = 12,
 }: PaginationProps) {
-  const lastPage = Math.ceil(
-    totalCountRegister / registersPerPage,
-  );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   const previousPages =
     currentPage > 1
@@ -48,15 +53,10 @@ export function Pagination({
     <Stack
       direction={['column', 'row']}
       mt='8'
-      justify='flex-end'
+      justify='space-between'
       align='center'
       spacing='6'
     >
-      {/* <Box>
-        <strong>0</strong> - <strong>10</strong> de{' '}
-        <strong>100</strong>
-      </Box> */}
-
       <HStack>
         {currentPage > 1 + siblingsCount && (
           <>
