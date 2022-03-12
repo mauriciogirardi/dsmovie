@@ -46,6 +46,7 @@ export default function ListMovies() {
 
       <Flex justify='flex-end' w='87%'>
         <Pagination
+          // @ts-ignore
           currentPage={movies?.number + 1}
           onPageChange={setPage}
           lastPage={movies?.totalPages || 0}
